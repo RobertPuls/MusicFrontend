@@ -44,7 +44,7 @@ $("#submitBtn").on("click", function() {
     "genre": $("#genre").val(),
     "album_name": $("#albumName").val(),
     "album_img": $("#albumCover").val(),
-    "user_id": 2,
+    "user_id": Number($("#id").val()),
   };
 
   let settings = {
