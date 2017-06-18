@@ -27,8 +27,11 @@
         <div id="2" class="bottomBorder hidden">
           <header id="header3" class="container"></header>
         </div>
+        <div class="center">
+          <a id="createBtn" href="?page=create" class="waves-effect waves-light btn">Add New Music</a>
+        </div>
       </article>
-      <article id="create">
+      <article id="create" class="hidden">
         <form class="row" action="index.html" method="post">
           <div class="input-field col s6">
             <input id="id" type="text" class="validate">
@@ -46,12 +49,12 @@
             <input id="albumName" type="text" class="validate">
             <label for="albumName">Album Name</label>
           </div>
-            <div>
-              <div class="btn">
-                <input id="albumCover" type="file">
-              </div>
+          <div>
+            <div class="btn">
+              <input id="albumCover" type="file">
             </div>
-         <a id="submitBtn" class="waves-effect waves-light btn">Submit</a>
+          </div>
+          <a id="submitBtn" class="waves-effect waves-light btn">Submit</a>
         </form>
       </article>
     </section>

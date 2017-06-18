@@ -36,7 +36,16 @@ function appReady() {
   $(`#${user}`).removeClass("hidden");
   $("#backButton").removeClass("hidden");
   $("#users").addClass("hidden");
+
+  if (currentURL.includes("create")) {
+    console.log(currentURL.includes("create"));
+    $("#create").removeClass("hidden");
+    $("#backButton").removeClass("hidden");
+    $("#users").addClass("hidden");
+    $("#createBtn").addClass("hidden");
+  }
 }
+
 
 $("#submitBtn").on("click", function() {
   let newMusic = {
@@ -63,5 +72,6 @@ $("#submitBtn").on("click", function() {
   $.ajax(settings).done(function(response) {
       console.log(response);
     })
-    .then(Materialize.toast("Submited", 4000));
+    .then(Materialize.toast("Submited", 4000))
+    .then(window.location.href = `/index?id=${newMusic.user_id-1}`);
 });
