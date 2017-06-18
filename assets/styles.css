@@ -1,0 +1,31 @@
+.noMargin {
+  margin: 0;
+}
+
+.fixedHeader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+body {
+  padding-top: 15%;
+}
+
+span {
+  color: black !important;
+}
+
+.bottomBorder {
+  border-bottom: black solid 1px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.leftMargin {
+  margin-left: 42%;
+}

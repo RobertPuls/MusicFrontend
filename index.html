@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <!-- css files -->
+    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+
+    <meta charset="utf-8">
+    <title>Music</title>
+  </head>
+
+  <body class="blue lighten-5">
+    <header class="fixedHeader z-depth-4 center blue darken-3">
+      <h2 class="noMargin">Music</h2>
+    </header>
+    <section>
+      <article id="users" class="row"></article>
+      <article id="userInfo" class="row">
+        <a id="backButton" href="index.html" class="blue darken-3 waves-effect waves-light btn leftMargin hidden">Back to users</a>
+        <div id="0" class="bottomBorder hidden">
+          <header id="header1" class="container"></header>
+        </div>
+        <div id="1" class="bottomBorder hidden">
+          <header id="header2" class="container"></header>
+        </div>
+        <div id="2" class="bottomBorder hidden">
+          <header id="header3" class="container"></header>
+        </div>
+      </article>
+    </section>
+    <script id="entry-template" type="text/x-handlebars-template">
+      <div class="col s12 m4">
+        <div class="card">
+          <div class="card-image">
+            <img src="{{accountImg}}">
+            <span class="card-title">{{accountName}}</span>
+          </div>
+          <div class="card-content">
+            <p>{{accountInfo}}</p>
+          </div>
+          <div class="card-action">
+            <a class="page-link" data-page="user{{userPage}}" href="index?id={{userPage}}">Albums</a>
+          </div>
+        </div>
+      </div>
+    </script>
+    <script id="userData" type="text/x-handlebars-template">
+      <div class="col s12 m4">
+        <div class="card">
+          <div class="card-image">
+            <img src="{{albumImg}}">
+            <span class="card-title">{{AlbumName}}</span>
+          </div>
+          <div class="card-content">
+            <p>Artist: {{bandName}}</p>
+            <p>Genre: {{albumInfo}}</p>
+          </div>
+        </div>
+      </div>
+    </script>
+    <script id="userHeader" type="text/x-handlebars-template">
+      <div>
+        <h2>{{accountInfo}}</h2>
+        <p>{{creationDate}}</p>
+      </div>
+    </script>
+    <div id="scripts">
+      <!-- script files -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
+      <script src="assets/app.js"></script>
+    </div>
+  </body>
+
+</html>
+
+</html>
