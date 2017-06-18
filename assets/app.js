@@ -37,13 +37,31 @@ function appReady() {
   $("#backButton").removeClass("hidden");
   $("#users").addClass("hidden");
 }
-// $(".page-link").on("click", function(){
-//   console.log($(".page-link"));
-// });
-// console.log($(html).find(".page-link"));
 
-// $.get(`https://music-backend.herokuapp.com/users/${}/albums`, function(userData){
-//   const userDataSource = $("#userData").html();
-//   const userTemplate = Handlebars.compile(userDataSource);
-//
-// });
+$("#submitBtn").on("click", function() {
+  let newMusic = {
+    "name": $("#artistName").val(),
+    "genre": $("#genre").val(),
+    "album_name": $("#albumName").val(),
+    "album_img": $("#albumCover").val(),
+    "user_id": 2,
+  };
+
+  let settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://music-backend.herokuapp.com/users/2/albums",
+    "method": "POST",
+    "headers": {
+      "content-type": "application/json",
+      "cache-control": "no-cache",
+      "postman-token": "f206a90b-7bcc-359e-8b91-232e211f9b5b"
+    },
+    "data": JSON.stringify(newMusic)
+  };
+
+  $.ajax(settings).done(function(response) {
+      console.log(response);
+    })
+    .then(Materialize.toast("Submited", 4000));
+});

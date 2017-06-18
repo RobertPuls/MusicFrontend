@@ -28,6 +28,32 @@
           <header id="header3" class="container"></header>
         </div>
       </article>
+      <article id="create">
+        <form class="row" action="index.html" method="post">
+          <div class="input-field col s6">
+            <input id="id" type="text" class="validate">
+            <label for="id">User ID</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="artistName" type="text" class="validate">
+            <label for="artistName">Artist Name</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="genre" type="text" class="validate">
+            <label for="genre">genre</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="albumName" type="text" class="validate">
+            <label for="albumName">Album Name</label>
+          </div>
+            <div>
+              <div class="btn">
+                <input id="albumCover" type="file">
+              </div>
+            </div>
+         <a id="submitBtn" class="waves-effect waves-light btn">Submit</a>
+        </form>
+      </article>
     </section>
     <script id="entry-template" type="text/x-handlebars-template">
       <div class="col s12 m4">
