@@ -1,14 +1,27 @@
 $(appReady);
 
 function appReady() {
+  let currentURL = window.location.href;
+  let user = currentURL.slice(currentURL.indexOf("=") + 1);
+
   $.get("https://music-backend.herokuapp.com/users", function(data) {
     handlebars(data, "#users", "#entry-template");
-    for (let i = 0; i < data.length; i++) {
-      $(`#header${i+1}`).append(`<h2>${data[i].email}</h2><p>${data[i].created_at}</p>`);
-      $.get(`https://music-backend.herokuapp.com/users/${i+1}/albums`, function(albumData) {
-        handlebars(albumData, `#${i}`, "#userData");
+    // for (let i = 0; i < data.length; i++) {
+    //   $(`#header${i+1}`).append(`<h2>${data[i].email}</h2><p>${data[i].created_at}</p>`);
+    if (currentURL.includes("=")) {
+      console.log(data);
+      $("#header1")[0].innerHTML = (`<h2>${data[user].email}</h2><p>${data[user].created_at}</p>`);
+      $.get(`https://music-backend.herokuapp.com/users/${Number(user)+1}/albums`, function(albumData) {
+        handlebars(albumData, `#${0}`, "#userData");
+        console.log(albumData);
       });
+      console.log(user);
+      $(`#${0}`).removeClass("hidden");
+      $("#backButton").removeClass("hidden");
+      $("#users").addClass("hidden");
     }
+    // }
+
   });
 
   function handlebars(data, appendTo, sourceFrom) {
@@ -30,12 +43,6 @@ function appReady() {
       $(appendTo).append(html);
     }
   }
-  let currentURL = window.location.href;
-  let user = currentURL.slice(currentURL.indexOf("=") + 1);
-  console.log(user);
-  $(`#${user}`).removeClass("hidden");
-  $("#backButton").removeClass("hidden");
-  $("#users").addClass("hidden");
 
   if (currentURL.includes("create")) {
     console.log(currentURL.includes("create"));
@@ -72,6 +79,5 @@ $("#submitBtn").on("click", function() {
   $.ajax(settings).done(function(response) {
       console.log(response);
     })
-    .then(Materialize.toast("Submited", 4000))
-    .then(window.location.href = `/index?id=${newMusic.user_id-1}`);
+    .done(Materialize.toast("Submited", 4000)).then(window.location.href = `/index?id=${newMusic.user_id-1}`);
 });
