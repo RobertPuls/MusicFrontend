@@ -6,8 +6,6 @@ function appReady() {
 
   $.get("https://music-backend.herokuapp.com/users", function(data) {
     handlebars(data, "#users", "#entry-template");
-    // for (let i = 0; i < data.length; i++) {
-    //   $(`#header${i+1}`).append(`<h2>${data[i].email}</h2><p>${data[i].created_at}</p>`);
     if (currentURL.includes("=")) {
       console.log(data);
       $("#header1")[0].innerHTML = (`<h2>${data[user].email}</h2><p>${data[user].created_at}</p>`);
@@ -20,8 +18,6 @@ function appReady() {
       $("#backButton").removeClass("hidden");
       $("#users").addClass("hidden");
     }
-    // }
-
   });
 
   function handlebars(data, appendTo, sourceFrom) {
@@ -59,7 +55,7 @@ $("#submitBtn").on("click", function() {
     "name": $("#artistName").val(),
     "genre": $("#genre").val(),
     "album_name": $("#albumName").val(),
-    "album_img": $("#albumCover").val(),
+    "album_img": $("#albumURL").val(),
     "user_id": Number($("#id").val()),
   };
 
