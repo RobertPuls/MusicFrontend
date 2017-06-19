@@ -17,12 +17,14 @@
     <section>
       <article id="users" class="row"></article>
       <article id="userInfo" class="row">
-        <a id="backButton" href="index.html" class="blue darken-3 waves-effect waves-light btn leftMargin hidden">Back to users</a>
+        <div class="col s12 center">
+          <a id="backButton" href="index.html" class="blue darken-3 waves-effect waves-light btn hidden">Back to users</a>
+        </div>
         <div id="0" class="bottomBorder hidden">
           <header id="header1" class="container"></header>
         </div>
         <div class="center col s12">
-          <a id="createBtn" href="?page=create" class="waves-effect waves-light btn">Add New Music</a>
+          <a id="createBtn" href="?page=create" class="blue darken-3 waves-effect waves-light btn">Add New Music</a>
         </div>
       </article>
       <article id="create" class="hidden">
@@ -52,7 +54,9 @@
               <label for="albumURL">Album Image URL</label>
             </div>
           </div>
-          <a id="submitBtn" class="waves-effect waves-light btn">Submit</a>
+          <div class="col s12 center">
+            <a id="submitBtn" class=" blue darken-3 waves-effect waves-light btn">Submit</a>
+          </div>
         </form>
       </article>
     </section>
